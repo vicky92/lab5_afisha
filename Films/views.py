@@ -100,8 +100,8 @@ def UpdateSession(request, ID):
     obj = Poster.objects.get(pk=ID)
     if request.method == 'POST':
         try:
-            fID =  request.POST["fID"]
-            cID = request.POST["cID"]
+            fID =Film.objects.get(pk=request.POST["fID"])
+            cID = Cinema.objects.get(pk=request.POST["cID"])
             
             t = datetime.datetime(int(request.POST["year"]), 
                                   int(request.POST["month"]), int(request.POST["day"]), int(request.POST["hour"]),
@@ -127,7 +127,7 @@ def UpdateFilm(request, ID):
     obj = Film.objects.get(pk=ID)
     if request.method == 'POST':
         try:
-            ID = int(ID)
+            #ID = int(ID)
             filmName = request.POST["name"]
             about = request.POST["about"]
             obj = Film.objects.get(pk=ID)
@@ -149,7 +149,7 @@ def UpdateCinema(request, ID):
     obj = Cinema.objects.get(pk=ID)
     if request.method == 'POST':
         try:
-            ID = int(ID)
+            #ID = int(ID)
             cinemaName = request.POST["name"]
             address = request.POST["address"]
             obj.name = cinemaName
