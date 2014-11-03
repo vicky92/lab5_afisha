@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>О сеансе</title>
+</head>
+<body>
+
+	<form action="http://127.0.0.1:8000" method="get">
+	  <button>На главную</button>
+	</form>
+
+<p> Название: <a href="http://127.0.0.1:8000/film/{{selected.filmId.pk}}">{{ selected.filmId.name }}</a>   </p>
+<p> Время сеанса: {{ selected.viewDate }}   </p>
+<p> Описание: {{ selected.filmId.about }}   </p>
+<p> Кинотеатр: <a href="http://127.0.0.1:8000/cinema/{{selected.cinemaId.pk}}">{{ selected.cinemaId.name }}</a></p>
+<p> Адрес:    {{ selected.cinemaId.address }} </p>
+	<form action="http://127.0.0.1:8000/update/session/{{ selected.pk }}" method="get">
+	  <button>Изменить</button>
+	</form>
+	<form action="http://127.0.0.1:8000/delete/session/{{ selected.pk }}" method="get">
+	  <button>Удалить</button>
+	</form> 
+</body>
+</html>

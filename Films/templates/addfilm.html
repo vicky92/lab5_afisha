@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Добавление фильма</title>
+</head>
+<body>
+
+	<form action="http://127.0.0.1:8000" method="get">
+	  <button>На главную</button>
+	</form>
+
+
+	<form action="http://127.0.0.1:8000/add/film/" method="post">
+	{% csrf_token %}
+	<p>Название:<input type="text" name="name"></p>
+	<p>Описание:<input type="text" name="about"> </p>
+	<p><input type="submit" value="Добавить"></p>
+	</form>
+
+	</form> 
+</body>
+</html>

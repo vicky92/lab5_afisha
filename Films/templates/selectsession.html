@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Выбор сессии</title>
+</head>
+<body>
+	
+	<form action="http://127.0.0.1:8000" method="get">
+	  <button>На главную</button>
+	</form>
+	<b>Все сеансы с </b>
+	 <form action="http://127.0.0.1:8000/select/session/" method="post">
+	   {% csrf_token %}
+	   <p>
+		   День: <input type="number" name="daySt" value="14"> 
+		   Месяц: <select name="monthSt"> 
+		    	<option value="1">Январь</option>
+		    	<option value="2">Февраль</option>
+		    	<option value="3">Март</option>
+		    	<option value="4">Апрель</option>
+		    	<option value="5">Май</option>
+		    	<option value="6">Июнь</option>
+		    	<option value="7">Июль</option>
+		    	<option value="8">Август</option>
+		    	<option value="9">Сентябрь</option>
+		    	<option value="10">Октябрь</option>
+		    	<option value="11">Ноябрь</option>
+		    	<option value="12">Декабрь</option>
+		   </select>  
+		   Год: <input type="number" name="yearSt" value="2014"> 
+	   </p>
+	   <p>
+		   Час: <input type="number" name="hourSt" value="14"> 
+		   Минута: <input type="number" name="minuteSt" value="14"> 
+	   </p>
+	 <b> по</b> 
+	   	<p>
+		   День: <input type="number" name="dayEnd" value="14"> 
+		   Месяц: <select name="monthEnd"> 
+		    	<option value="1">Январь</option>
+		    	<option value="2">Февраль</option>
+		    	<option value="3">Март</option>
+		    	<option value="4">Апрель</option>
+		    	<option value="5">Май</option>
+		    	<option value="6">Июнь</option>
+		    	<option value="7">Июль</option>
+		    	<option value="8">Август</option>
+		    	<option value="9">Сентябрь</option>
+		    	<option value="10">Октябрь</option>
+		    	<option value="11">Ноябрь</option>
+		    	<option value="12">Декабрь</option>
+		   </select>  
+		   Год: <input type="number" name="yearEnd" value="2014"> 
+	   </p>
+	   <p>
+		   Час: <input type="number" name="hourEnd" value="14"> 
+		   Минута: <input type="number" name="minuteEnd" value="14"> 
+	   </p>
+	   <p><input type="submit" value="Отправить"></p>
+	  </form>
+	  <a href="http://127.0.0.1:8000/add/session/">Добавить Сеанс</a>
+	<table>
+		<tr>
+			<th>Фильм</th>
+			<th>Время</th>
+			<th>Кинотеатр</th>
+		</tr>
+		{% for i in selected %}
+	    <tr>
+	    	
+		   		<td> <a href="http://127.0.0.1:8000/session/{{ i.pk }}"> {{ i.filmId.name }}	</a> </td> 
+		   		<td> <a href="http://127.0.0.1:8000/session/{{ i.pk }}"> {{ i.viewDate }} </a></td>
+		   		<td> <a href="http://127.0.0.1:8000/session/{{ i.pk }}"> {{ i.cinemaId.name }}</a> </td> 
+	   	
+		</tr>
+		{% endfor %}
+	</table>
+
+</body>
+</html>

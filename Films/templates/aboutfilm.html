@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>О фильме</title>
+</head>
+<body>
+
+	<form action="http://127.0.0.1:8000" method="get">
+	  <button>На главную</button>
+	</form>
+
+<p> Название: {{ selected.name }}   </p>
+<p> Описание: {{ selected.about }} </p>
+	<form action="http://127.0.0.1:8000/update/film/{{ selected.pk }}" method="get">
+	  <button>Изменить</button>
+	</form>
+	<form action="http://127.0.0.1:8000/delete/film/{{ selected.pk }}" method="get">
+	  <button>Удалить</button>
+	</form> 
+</body>
+</html>

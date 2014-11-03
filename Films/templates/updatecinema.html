@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Изменение описания кинотеатра</title>
+</head>
+<body>
+
+	<form action="http://127.0.0.1:8000" method="get">
+	  <button>На главную</button>
+	</form>
+
+	<form action="http://127.0.0.1:8000/update/cinema/{{ cinema.pk }}/" method="post">
+	  	{% csrf_token %}
+	  	<p>Название:<input type="text" name="name"></p>
+		<p>Адрес:<input type="text" name="address"> </p>
+		<p><input type="submit" value="Изменить"></p>
+	</form>
+</body>
+</html>

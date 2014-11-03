@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Выбор кинотеатра</title>
+</head>
+<body>
+	
+	<form action="http://127.0.0.1:8000" method="get">
+	  <button>На главную</button>
+	</form>
+	
+	<form action="http://127.0.0.1:8000/select/cinema/{{ cinema.pk }}" method="post">
+	  	{% csrf_token %}
+	  	<p>Название:<input type="text" name="name"></p>
+		<p><input type="submit" value="Найти"></p>
+	</form>
+	<a href="http://127.0.0.1:8000/add/cinema/">Добавить Кинотеатр</a>
+	<table>
+		<tr>
+			<th>Название</th>
+			<th>Адрес</th>
+		</tr>
+		{% for i in selected %}
+	    <tr>
+	   		<td> <a href="http://127.0.0.1:8000/cinema/{{ i.pk }}"> {{ i.name }}</a></td> 
+	   		<td>{{i.address}}</td>
+		</tr>
+		{% endfor %}
+	</table>
+
+
+	
+
+</body>
+</html>
